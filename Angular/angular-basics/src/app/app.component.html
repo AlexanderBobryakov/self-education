@@ -3,11 +3,24 @@
 <p>{{title}} - {{number - 2}}</p>
 <div>{{arr}}</div>
 <div>{{obj}} - {{obj.a2}}</div>
+<!--BINDING = ts -> html-->
 <div>
   <img src="{{image}}" alt="" style="height: 150px; width: 200px">
 </div>
 <div>
   <img [src]="image" alt="" style="height: 150px; width: 200px">
+</div>
+<!--Event BINDING = htnl -> ts-->
+<label>
+  <input type="text"
+         (keyup.enter)="onInput($event)"
+         (blur)="onBlur(myInput.value)"
+   #myInput
+  >
+</label>
+<div>{{inputValue}}</div>
+<div>
+  <button (click)="onClick($event)">Click ME</button>
 </div>
 
 ---------

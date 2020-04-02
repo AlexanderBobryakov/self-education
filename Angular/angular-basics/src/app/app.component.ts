@@ -15,6 +15,7 @@ export class AppComponent {
     a2: 'name1',
   };
   image = 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png';
+  inputValue = '';
 
   constructor() {
     setTimeout(() => {
@@ -22,4 +23,15 @@ export class AppComponent {
     }, 5000);
   }
 
+  onInput(event) {
+    this.inputValue = (event.target as HTMLInputElement).value;
+  }
+
+  onBlur(str: string) {
+   this.inputValue = str;
+  }
+
+  onClick($event: MouseEvent) {
+    console.log('CLICK');
+  }
 }
