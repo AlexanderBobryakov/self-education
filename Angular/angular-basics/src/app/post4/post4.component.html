@@ -1,0 +1,36 @@
+<div>{{obj}} - {{obj.a2}}</div>
+
+<!--BINDING = ts -> html-->
+<div>
+  <img src="{{image}}" alt="" style="height: 150px; width: 200px">
+</div>
+<div>
+  <img [src]="image" alt="" style="height: 150px; width: 200px">
+</div>
+
+<!--Event BINDING = htnl -> ts-->
+<label>
+  <input type="text"
+         (keyup.enter)="onInput($event)"
+         (blur)="onBlur(myInput.value)"
+         #myInput
+  >
+</label>
+<div>{{inputValue}}</div>
+<div>
+  <button (click)="onClick($event)">Click ME</button>
+</div>
+
+<!--2 WAY BINDING-->
+<!--1 exmple-->
+<div style="margin-top: 30px">
+  <input type="text" [value]="title" (input)="onTitleInput($event)">
+  <div>{{title}}</div>
+</div>
+<!--with FormsModule-->
+<div style="margin-top: 15px">
+  <input type="text" [(ngModel)]="title">
+  <div>{{title}}</div>
+</div>
+
+

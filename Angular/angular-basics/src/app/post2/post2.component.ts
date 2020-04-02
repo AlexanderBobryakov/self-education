@@ -6,6 +6,5 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./post2.component.scss']
 })
 export class Post2Component {
-
-
+  backgroundToggle = false;
 }

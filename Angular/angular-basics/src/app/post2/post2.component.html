@@ -1,1 +1,12 @@
-<p>post2 works!</p>
+<div [ngStyle]="{
+  width: '200px',
+  height: '200px',
+  borderRadius: '5px',
+  border: '3px solid #ccc',
+  background:  backgroundToggle ? 'red' : 'blue'
+}">
+</div>
+
+<button (click)="backgroundToggle = !backgroundToggle">
+
+</button>
