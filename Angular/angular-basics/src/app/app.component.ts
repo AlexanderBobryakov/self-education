@@ -7,15 +7,13 @@ import {Component} from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Dynamic TITLE';
-  number = 42;
-  arr = [1, 2, 3];
   obj = {
     a1: 1,
     a2: 'name1',
   };
   image = 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png';
   inputValue = '';
+  title = 'Init Title';
 
   constructor() {
     setTimeout(() => {
@@ -31,7 +29,11 @@ export class AppComponent {
    this.inputValue = str;
   }
 
-  onClick($event: MouseEvent) {
+  onClick(event: MouseEvent) {
     console.log('CLICK');
+  }
+
+  onTitleInput(event: Event) {
+    this.title = (event.target as any).value;
   }
 }
