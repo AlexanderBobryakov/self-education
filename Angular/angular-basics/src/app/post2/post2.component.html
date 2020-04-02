@@ -1,12 +1,62 @@
+<!--ngStyle - динамически изменяет style по полю backgroundToggle-->
 <div [ngStyle]="{
-  width: '200px',
-  height: '200px',
+  width: '50px',
+  height: '50px',
   borderRadius: '5px',
   border: '3px solid #ccc',
   background:  backgroundToggle ? 'red' : 'blue'
 }">
 </div>
 
-<button (click)="backgroundToggle = !backgroundToggle">
+<div>
+  <button (click)="backgroundToggle = !backgroundToggle">
+    change color
+  </button>
+</div>
 
-</button>
+--------------------------------------------------------
+<!--ngClass - динамически применяет css class по полю backgroundToggle-->
+<p [ngClass]="{
+  red: backgroundToggle,
+  blue: !backgroundToggle
+}">
+  TEST TEST TESTES TESTSETTSET
+</p>
+<p
+  [class.blue]="!backgroundToggle"
+  [class.red]="backgroundToggle"
+>
+  TESTESTSTESETSETSESETTE
+</p>
+
+
+----------------------------------------------------------
+<!--ngIf else - динамическое условие.
+ * - т.к. хотим изменять шаблон
+ # - для ссылок внутри html
+ -->
+<p *ngIf="backgroundToggle; else blueContainer" class="red">1</p>
+<ng-template #blueContainer>
+  <p *ngIf="!backgroundToggle" class="blue">2</p>
+</ng-template>
+
+
+----------------------------------------------------------
+<!--ngSwitch-->
+<div [ngSwitch]="backgroundToggle">
+  <p *ngSwitchCase="true" class="red">1</p>
+  <p *ngSwitchCase="false" class="blue">2</p>
+  <p *ngSwitchDefault>3</p>
+</div>
+
+
+----------------------------------------------------------
+<!--ngFor-->
+<ul>
+  <li *ngFor="let element of array; let i = index">index: {{i}}. element: {{element}}</li>
+</ul>
+
+----------------------------------------------------------
+<!--pipe - трансформирует данные (название pipe + его параметры)-->
+<p>{{now | date:'long' | uppercase}}</p>
+
