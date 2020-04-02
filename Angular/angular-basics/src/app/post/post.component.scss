@@ -1,0 +1,8 @@
+.post {
+  width: 100px;
+  border: 1px dashed blue;
+
+  & > p {
+    font-size: 50px;
+  }
+}
