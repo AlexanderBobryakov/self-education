@@ -1,6 +1,16 @@
 <div>
-  <input type="text" class="form-control" placeholder="Title...">
-  <input type="text" class="form-control" placeholder="Text...">
+  <input
+    type="text"
+    class="form-control"
+    placeholder="Title..."
+    [(ngModel)]="title"
+  >
+  <input
+    type="text"
+    class="form-control"
+    placeholder="Text..."
+    [(ngModel)]="text"
+  >
 
-  <button class="btn">Добавить пост</button>
+  <button class="btn" (click)="addPost()">Добавить пост</button>
 </div>

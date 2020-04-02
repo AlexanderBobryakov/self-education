@@ -1,10 +1,14 @@
 <div class="container">
   <h1>Angular Components</h1>
 
-  <app-post-form></app-post-form>
+  <app-post-form
+    (onAdd)="updatePost($event)"
+  ></app-post-form>
+
   <hr/>
+
   <app-post
     *ngFor="let p of posts"
-    [post]="p">
-  </app-post>
+    [post]="p"
+  ></app-post>
 </div>
