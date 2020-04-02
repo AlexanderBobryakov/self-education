@@ -14,7 +14,8 @@ import {
   OnDestroy,
   OnInit,
   Output,
-  SimpleChanges
+  SimpleChanges,
+  ViewEncapsulation
 } from '@angular/core';
 import {Post} from '../app.component';
 
@@ -22,6 +23,7 @@ import {Post} from '../app.component';
   selector: 'app-post',
   templateUrl: './post.component.html',
   styleUrls: ['./post.component.scss', '../app.component.scss'],
+  encapsulation: ViewEncapsulation.None,  // использовать стили глобально из своего css
   changeDetection: ChangeDetectionStrategy.OnPush  // реагирует только на изменения @Input
 })
 export class PostComponent implements
