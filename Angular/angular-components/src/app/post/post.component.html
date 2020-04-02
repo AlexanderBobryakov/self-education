@@ -1,5 +1,7 @@
 <div class="card">
-  <h2>{{post.title}}</h2>
+  <h2 style="width: 100%">{{post.title}}
+    <button class="btn" style="float: right" (click)="removePost()">&times;</button>
+  </h2>
   <p>{{post.text}}</p>
   <ng-content></ng-content>
 </div>
