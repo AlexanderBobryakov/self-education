@@ -2,7 +2,8 @@ import {Pipe, PipeTransform} from '@angular/core';
 import {Post} from "../app.component";
 
 @Pipe({
-  name: 'filter'
+  name: 'filter',
+  pure: false  // false -ухудшает оптимизацию. Но отслеживает все изменения входных данных (posts) ПОСТОЯННО
 })
 export class FilterPipe implements PipeTransform {
 
