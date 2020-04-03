@@ -32,6 +32,11 @@
     {{'   HELLO      ' | exMarks}}
   </p>
 
+  <!--ASYNC-->
+  <p>Wait for it...{{promise | async}}</p>
+  <p>Date... {{dateObservable | async | date: "dd MMMM yyyy HH:mm:ss"}}</p>
+  <p>{{date}}</p>
+
   <!--Оптимизация Pipe-->
   <button class="btn" (click)="addPost()">Добавить пост</button>
   <!--ФИЛЬТРАЦИЯ-->

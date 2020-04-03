@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Observable} from "rxjs";
 
 export interface Post {
   id: number,
@@ -10,7 +11,7 @@ export interface Post {
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
   e: number = Math.E;
   float: number = 0.423346;
@@ -30,4 +31,23 @@ export class AppComponent {
     {id: Math.random(), title: "FIRST 1", content: "trgrtgtdtr rth d hdh dh dh y"}
     )
   }
+
+  /*Для ASYNC*/
+  promise: Promise<string> = new Promise<string>(resolve => {
+    setTimeout(()=> {
+      resolve('Promise Resolved')
+    }, 4000)
+  });
+  dateObservable: Observable<Date> = new Observable<Date>(obs => {
+    setInterval(() => {
+      obs.next(new Date())
+    }, 1000)
+  });
+
+  ngOnInit(): void {
+    this.dateObservable.subscribe(date => {
+      this.date = date
+    })
+  }
+
 }
