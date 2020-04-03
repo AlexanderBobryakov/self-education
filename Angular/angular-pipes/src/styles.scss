@@ -1,0 +1,71 @@
+/* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+* {
+  font-family: 'Roboto Light', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  background-color: white;
+  color: #333333;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding-top: 1rem;
+}
+
+a {
+  text-decoration: none;
+  &:hover {
+    color: #666666;
+  }
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  width: 100%;
+}
+
+.btn {
+  display: inline-block;
+  background: #333333;
+  color: #ffffff;
+  padding: 0.4rem 1.3rem;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  margin-right: 0.5rem;
+  transition: opacity 0.2s ease-in;
+  outline: none;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.form-control {
+  display: block;
+  margin-top: 0.3rem;
+}
+
+.card {
+  padding: 1rem;
+  border: #cccccc 1px dotted;
+  margin: 0.7rem 0;
+}
+
+input,
+select,
+textarea {
+  display: block;
+  width: 100%;
+  padding: 0.4rem;
+  font-size: 1.2rem;
+  border: 1px solid #cccccc;
+  margin: 1.2rem 0;
+}
