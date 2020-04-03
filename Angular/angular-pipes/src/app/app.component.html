@@ -1,4 +1,24 @@
 <div class="container">
   <h1>Angular Pipes</h1>
 
+  <!--NUMBER-->
+  <p>
+    {{e | number:'2.0-4'}}
+  </p>
+  <p>
+    {{float | currency}}  -  {{float | percent: "3.0-2"}}
+  </p>
+
+  <!--STRING-->
+  <p>
+    {{str | uppercase | lowercase | titlecase}}
+  </p>
+  <p>
+    {{str | titlecase | slice: 1:-2}}
+  </p>
+
+  <!--DATE-->
+  <p>
+    {{date | date: "dd MMMM yyyy HH:mm:ss"}}
+  </p>
 </div>

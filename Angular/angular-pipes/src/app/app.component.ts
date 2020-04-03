@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'angular-pipes';
+
+  e: number = Math.E;
+  float: number = 0.423346;
+  str: string = "hello world";
+  date: Date = new Date()
+
 }
