@@ -4,4 +4,15 @@
   <p appStyle="green" [dStyles]="{border: '1px solid', fontWeight: 'bold', borderRadius: '10px'}">
     Lorem ipsum dolor sit amet.
   </p>
+  <p appStyle="chocolate" [dStyles]="{border: '2px solid black', fontWeight: 'bold', borderRadius: '2px'}">
+    Lorem ipsum dolor sit amet.
+  </p>
+
+  <button class="btn" (click)="isVisible = !isVisible">Toggle</button>
+  <div class="wrap" *appIfnot="!isVisible">
+    <p>TESTTESTSETSETSETSET</p>
+  </div>
+  <div *ngIf="isVisible" class="wrap">
+    <p>TESTTESTSETSETSETSET</p>
+  </div>
 </div>
