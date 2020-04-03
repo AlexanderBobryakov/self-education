@@ -44,6 +44,7 @@ export class AppComponent implements OnInit {
     }, 1000)
   });
 
+  /*то что вместо async pipe*/
   ngOnInit(): void {
     this.dateObservable.subscribe(date => {
       this.date = date
