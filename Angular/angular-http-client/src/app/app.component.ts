@@ -54,4 +54,11 @@ export class AppComponent implements OnInit {
         this.loading = false;
       })
   }
+
+  completeTodo(id: number) {
+    this.todoService.competeTodo(id)
+      .subscribe(response => {
+        this.todos.find(t => t.id === id).completed = true;
+      })
+  }
 }
