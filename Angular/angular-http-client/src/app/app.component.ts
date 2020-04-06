@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {delay} from "rxjs/operators";
 import {Todo, TodoService} from "./todo.service";
 
@@ -13,6 +13,7 @@ export class AppComponent implements OnInit {
   todos: Todo[] = [];
   todoTitle: string = '';
   loading = false;
+  error: string = '';
 
   constructor(private todoService: TodoService) {
   }
@@ -41,9 +42,17 @@ export class AppComponent implements OnInit {
     this.loading = true;
     this.todoService.fetchTodos()
       .subscribe(response => {
-        this.todos = response;
-        this.loading = false;
-      })
+          this.todos = response;
+          this.loading = false;
+        },
+        error => {
+          let er = error as HttpErrorResponse;
+          this.error = er.message;
+        },
+        () => {
+
+        }
+      )
   }
 
   removeTodo(id: number) {
