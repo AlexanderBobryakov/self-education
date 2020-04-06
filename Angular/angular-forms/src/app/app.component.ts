@@ -29,6 +29,8 @@ export class AppComponent implements OnInit {
   // метод по отправке формы
   submit() {
     console.log(this.form);
+    // очистка формы
+    this.form.reset()
   }
 
   setCapital() {
