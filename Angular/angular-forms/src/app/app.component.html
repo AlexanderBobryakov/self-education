@@ -57,6 +57,15 @@
     <button class="btn" type="submit" [disabled]="form.invalid || form.pending">Отправить</button>
 
   </form>
+
+
+  <!-- Собственные компоеннеты как ngModel-->
+  <app-switch
+    [(ngModel)]="appState"
+    (ngModelChange)="handleChange()"
+  ></app-switch>
+  <hr>
+  <p>{{appState}}</p>
 </div>
 
 
