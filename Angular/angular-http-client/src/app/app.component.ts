@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {delay} from "rxjs/operators";
 
 export interface Todo {
   completed: boolean,
@@ -16,15 +17,13 @@ export class AppComponent implements OnInit {
 
   todos: Todo[] = [];
   todoTitle: string = '';
+  loading = false;
 
   constructor(private http: HttpClient) {
   }
 
   ngOnInit(): void {
-    this.http.get<Todo[]>('https://jsonplaceholder.typicode.com/todos?_limit=2')
-      .subscribe(response => {
-        this.todos = response;
-      })
+    this.fetchTodos()
   }
 
   addTodo() {
@@ -35,11 +34,34 @@ export class AppComponent implements OnInit {
       title: this.todoTitle,
       completed: false,
     };
+    this.loading = true;
     this.http.post<Todo>('https://jsonplaceholder.typicode.com/todos', newTodo)
       .subscribe(response => {
         console.log(response);
         this.todos.unshift(response);
         this.todoTitle = '';
+        this.loading = false;
+      })
+  }
+
+  fetchTodos() {
+    this.loading = true;
+    this.http.get<Todo[]>('https://jsonplaceholder.typicode.com/todos?_limit=1')
+      .pipe(
+        delay(1000)
+      )
+      .subscribe(response => {
+        this.todos = response;
+        this.loading = false;
+      })
+  }
+
+  removeTodo(id: number) {
+    this.loading = true;
+    this.http.delete(`https://jsonplaceholder.typicode.com/todos/${id}`)
+      .subscribe(response => {
+        this.todos = this.todos.filter(t => t.id != id);
+        this.loading = false;
       })
   }
 }
