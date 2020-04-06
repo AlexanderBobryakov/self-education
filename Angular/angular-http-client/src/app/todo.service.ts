@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 import {Observable, throwError} from "rxjs";
 import {catchError, delay} from "rxjs/operators";
 
@@ -18,11 +18,18 @@ export class TodoService {
   }
 
   addTodo(todo: Todo): Observable<Todo> {
-    return this.http.post<Todo>('https://jsonplaceholder.typicode.com/todos', todo)
+    return this.http.post<Todo>('https://jsonplaceholder.typicode.com/todos', todo, {
+      headers: new HttpHeaders({
+        'MyCustomHeader': Math.random().toString()
+      })
+    })
   }
 
   fetchTodos(): Observable<Todo[]> {
-    return this.http.get<Todo[]>('https://jsonplaceholder.typicode.com/todos?_limit=1')
+    return this.http.get<Todo[]>('https://jsonplaceholder.typicode.com/todos?', {
+      // params: new HttpParams().set('_limit', '3')
+      params: new HttpParams().append('_limit', '4').append('custom', 'wwrewe')
+    })
       .pipe(
         delay(500),
         catchError(err => {
