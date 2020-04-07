@@ -16,10 +16,16 @@ export class PostComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.route.params.subscribe((params: Params) => {
-      console.log(params);
-      this.post = this.postService.getById(+params.id); // + конвертирует строку в число
+    // this.post = this.route.snapshot.data.post  // snapshot - статический а не динамический -> не видит изменения в data
+    // решение
+    this.route.data.subscribe(data => {
+      this.post = data.post;
     })
+
+    // this.route.params.subscribe((params: Params) => {
+    //   console.log(params);
+    //   this.post = this.postService.getById(+params.id); // + конвертирует строку в число
+    // })
   }
 
   loadPost() {
