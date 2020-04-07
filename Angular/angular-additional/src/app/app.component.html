@@ -7,16 +7,20 @@
 
     <h1>Some content</h1>
 
-    <button class="btn" (click)="modal = true">Show modal</button>
+    <button class="btn" (click)="showModal()">Show modal</button>
 
-    <app-modal
+   <!-- <app-modal
       *ngIf="modal"
       title="Modal window"
       (close)="modal = false"
-    ></app-modal>
+    ></app-modal>-->
 
   </div>
 </div>
+
+<ng-template appRef>
+
+</ng-template>
 
 
 
